@@ -12,23 +12,23 @@ let osc11;
 let osc12;
 let filter;
 
-let just = [130.8, 139, 142.7, 149.5, 152.6, 166.5, 171.7, 174.4, 179.9, 190.3, 196.2, 199.3, 205.5, 224.2, 228.9, 239.8];
+let just = [130.8, 139, 142.7, 149.5, 152.6, 166.5, 171.7, 174.4, 179.9, 190.3, 196.2, 199.3];
 
-let triTone = [1, (16/15), (9/8), (6/5), (5/4), (4/3), (7/5), (3/2), (8/5), (5/3), (9/5), (15/8), (2/1)];
+let triTone = [1, (16/15), (9/8), (6/5), (5/4), (4/3), (7/5), (3/2), (8/5), (5/3), (9/5), (15/8)];
 
-let twelveTone = [1, (16/15), (9/8), (7/6), (5/4), (4/3), (7/5), (3/2), (8/5), (12/7), (7/4), (15/8), (2/1)];
+let twelveTone = [1, (16/15), (9/8), (7/6), (5/4), (4/3), (7/5), (3/2), (8/5), (12/7), (7/4), (15/8)];
 
-let altTwelve = [1, (25/24), (10/9), (7/6), (5/4), (21/16), (7/5), (3/2), (8/5), (12/7), (7/4), (15/8), (2/1)];
+let altTwelve = [1, (25/24), (10/9), (7/6), (5/4), (21/16), (7/5), (3/2), (8/5), (12/7), (7/4), (15/8)];
 
-let differential = []
+let differential = [1, (16/15), (67/60), (6/5), (19/15), (4/3),(7/5), (3/2), (8/5), (5/3), (53/30), (28/15)];
+
+let justRef = [130.8, 139, 142.7, 149.5, 152.6, 166.5, 171.7, 174.4, 179.9, 190.3, 196.2, 199.3];
 
 let oscPhase = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.1, 0.11, 0.12];
 
-let oscTypes = ['sine', 'triangle', 'sawtooth', 'square'];;
+let oscTypes = ['sine', 'triangle', 'sawtooth', 'square'];
 
-let xpos, ypos;
-
-let rad = 20;
+let displayOsc = ('');
 
 let col = 14;
 let c = 43;
@@ -41,9 +41,6 @@ function setup() {
   createCanvas(width, height);
   noStroke();
   frameRate(10);
-
-  xpos = 20;
-  ypos = 20;
 
   osc1 = new p5.Oscillator(oscTypes[0]);
   osc2 = new p5.Oscillator(oscTypes[0]);
@@ -172,6 +169,48 @@ function draw() {
   osc10.phase(oscPhase[9]);
   osc11.phase(oscPhase[10]);
   osc12.phase(oscPhase[11]);
+
+  //change the osc waveforms
+  osc1.setType(oscTypes[0]);
+  osc2.setType(oscTypes[0]);
+  osc3.setType(oscTypes[0]);
+  osc4.setType(oscTypes[0]);
+  osc5.setType(oscTypes[0]);
+  osc6.setType(oscTypes[0]);
+  osc7.setType(oscTypes[0]);
+  osc8.setType(oscTypes[0]);
+  osc9.setType(oscTypes[0]);
+  osc10.setType(oscTypes[0]);
+  osc11.setType(oscTypes[0]);
+  osc12.setType(oscTypes[0]);
+
+  //draw the intonation buttons
+  fill(14,43,53);
+  rect(10, 10, 300, 50);
+  fill(255);
+  text('7 Limit Tritone', 70, 20, 300, 50);
+  fill(14,43,53);
+  rect(320, 10, 300, 50);
+  fill(255);
+  text('7 Limit 12-Tone', 390, 20, 300, 50);
+  fill(14,43,53);
+  rect(630, 10, 300, 50);
+  fill(255);
+  text('Alternate 12-Tone', 680, 20, 300, 50);
+  fill(14,43,53);
+  rect(940, 10, 300, 50);
+  fill(255);
+  text('12-Tone Subharmonic', 960, 20, 300, 50);
+
+  //draw the intonation reset button
+  fill(14,43,53);
+  rect(1250, 10, 70, 50);
+  fill(255);
+  textSize(22);
+  textStyle(ITALIC);
+  text('reset', 1258, 23, 70, 50);
+  textSize(27);
+  textStyle(NORMAL);
 
   //draw the osc buttons
   fill(14,43,53);
@@ -309,6 +348,45 @@ function draw() {
   fill(255);
   text('Octave Down', 30, 472, 210, 50);
 
+  //draw the change osc button
+  textSize(23);
+  fill(12,43,53);
+  rect(10, 280, 210, 50);
+  fill(255);
+  text('Change Oscillators', 17, 293, 210, 50);
+  textSize(27);
+
+  //draw the osc display button
+  fill(12,33,53);
+  rect(230, 285, 125, 40);
+  fill(255);
+  textStyle(ITALIC);
+  textSize(22);
+  text(displayOsc, 245, 293, 210, 50);
+  if (oscTypes[0] == 'sine') {
+    displayOsc = 'Sine';
+  } else if (oscTypes[0] == 'triangle') {
+    displayOsc = 'Triangle';
+  } else if (oscTypes[0] == 'sawtooth') {
+    displayOsc = 'Sawtooth';
+  } else if (oscTypes[0] == 'square') {displayOsc = 'Square';
+}
+  textStyle(NORMAL);
+  textSize(27);
+
+  // //draw the phase shift buttons
+  // textSize(23);
+  // fill(14,43,53)
+  // rect(10, 100, 210, 50);
+  // fill(255);
+  // text('Shift Phase Up', 25, 112, 210, 50);
+  // textSize(23);
+  // fill(14,43,53)
+  // rect(10, 160, 210, 50);
+  // fill(255);
+  // text('Shift Phase Down', 25, 170, 210, 50);
+  // textSize(27);
+
   //draw the all oscs and clear oscs buttons
   fill(14,43,53);
   rect((width - 220), 400, 210, 50);
@@ -319,21 +397,8 @@ function draw() {
   fill(255);
   text('All Notes On', (width - 185), 472, 210, 50);
 
-
-  //draw the phase shift buttons
-  textSize(23);
-  fill(14,43,53)
-  rect(10, 100, 210, 50);
-  fill(255);
-  text('Shift Phase Up', 25, 112, 210, 50);
-  textSize(23);
-  fill(14,43,53)
-  rect(10, 160, 210, 50);
-  fill(255);
-  text('Shift Phase Down', 25, 170, 210, 50);
-  textSize(27);
-
-  console.log(mouseX, mouseY)
+  // console.log(mouseX, mouseY)
+  console.log(just);
 }
 
 function touchStarted() {
@@ -341,6 +406,8 @@ function touchStarted() {
 }
 
 function mouseClicked() {
+
+  //osc buttons
   if ((mouseX >= 10 && mouseX <= 110) && 
   (mouseY >= 600 && mouseY <= 650) && osc1.started) {
   osc1.stop();} else if ((mouseX >= 10 && mouseX <= 110) && 
@@ -402,18 +469,21 @@ function mouseClicked() {
   (mouseY >= 600 && mouseY <= 650) && osc12.started == false) { 
   osc12.start();}
 
+  //octave up
   if ((mouseX >= 10 && mouseX <= 230) && 
   (mouseY >= 400 && mouseY <= 450)) {
     just = just.map(function(i){
       return i + i; } )
     }
 
+  //octave down
   if ((mouseX >= 10 && mouseX <= 230) && 
   (mouseY >= 460 && mouseY <= 510)) {
     just = just.map(function(i){
       return i / 2 ; } )
     }
 
+  //phase up
   if ((mouseX >= 10 && mouseX <= 220) &&
   (mouseY >= 100 && mouseY <= 150)) {
     oscPhase = oscPhase.map(function(i){
@@ -421,6 +491,7 @@ function mouseClicked() {
     })
   }
 
+  //phase down
   if ((mouseX >= 10 && mouseX <= 220) &&
   (mouseY >= 160 && mouseY <= 210)) {
     oscPhase = oscPhase.map(function(i){
@@ -428,16 +499,46 @@ function mouseClicked() {
     })
   }
 
+  //clear notes
   if ((mouseX >= (width - 220) && mouseX <= (width - 10) &&
   (mouseY >= 400 && mouseY <= 450))) {
     osc1.stop(), osc2.stop(), osc3.stop(), osc4.stop(), osc5.stop(), osc6.stop(),
     osc7.stop(), osc8.stop(), osc9.stop(), osc10.stop(), osc11.stop(), osc12.stop();
   }
 
+  //all notes on
   if ((mouseX >= (width - 220) && mouseX <= (width - 10) &&
   (mouseY >= 460 && mouseY <= 510))) {
     osc1.start(), osc2.start(), osc3.start(), osc4.start(), osc5.start(), osc6.start(),
     osc7.start(), osc8.start(), osc9.start(), osc10.start(), osc11.start(), osc12.start();
+  }
+
+  //change oscs
+  if ((mouseX >= 10 && mouseX <= 220) &&
+  (mouseY >= 280 && mouseY <= 330)) {
+    oscTypes.push(oscTypes.shift());
+  }
+
+  //change intonation
+  if ((mouseX >= 10 && mouseX <= 310) &&
+  (mouseY >= 10 && mouseY <= 60)) {
+    just = just.map((e,i)=>e*triTone[i]);
+  }
+  if ((mouseX >= 320 && mouseX <= 620) &&
+  (mouseY >= 10 && mouseY <= 60)) {
+    just = just.map((e,i)=>e*twelveTone[i]);
+  }
+  if ((mouseX >= 630 && mouseX <= 930) &&
+  (mouseY >= 10 && mouseY <= 60)) {
+    just = just.map((e,i)=>e*altTwelve[i]);
+  }
+  if ((mouseX >= 940 && mouseX <= 1240) &&
+  (mouseY >= 10 && mouseY <= 60)) {
+    just = just.map((e,i)=>e*differential[i]);
+  }
+  if ((mouseX >= 1250 && mouseX <= 1320) &&
+  (mouseY >= 10 && mouseY <= 60)) {
+    just = just.map((e,i)=>justRef[i]);
   }
 
 }
