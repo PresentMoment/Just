@@ -68,7 +68,7 @@ class Labels {
   } else {fill(19,55,69)}
    rect((width / 11.12), (height /1.098), (width / 12.98), (height / 16));
    fill(255);
-   text(note2, (width / 11), (height /1.082), (width / 12.98), (height / 16));
+   text(note2, (width / 10.8), (height /1.082), (width / 12.98), (height / 16));
    if (osc3.started == true){
     fill(14,43,53)
   } else {fill(19,55,69)}
@@ -110,7 +110,7 @@ class Labels {
   } else {fill(19,55,69)}
    rect((width / 1.493), (height /1.098), (width / 12.98), (height / 16));
    fill(255);
-   text(note9, (width / 1.48), (height /1.082), (width / 12.98), (height / 16));
+   text(note9, (width / 1.485), (height /1.082), (width / 12.98), (height / 16));
    if (osc10.started == true){
     fill(14,43,53)
   } else {fill(19,55,69)}
@@ -122,7 +122,7 @@ class Labels {
   } else {fill(19,55,69)}
    rect((width / 1.199), (height /1.098), (width / 12.98), (height / 16));
    fill(255);
-   text(note11, (width / 1.19), (height /1.082), (width / 12.98), (height / 16));
+   text(note11, (width / 1.194), (height /1.082), (width / 12.98), (height / 16));
    if (osc12.started == true){
     fill(14,43,53)
   } else {fill(19,55,69)}
