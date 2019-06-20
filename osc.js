@@ -12,6 +12,19 @@ let osc11;
 let osc12;
 let filter;
 
+let note1 = '';
+let note2 = '';
+let note3 = '';
+let note4 = '';
+let note5 = '';
+let note6 = '';
+let note7 = '';
+let note8 = '';
+let note9 = '';
+let note10 = '';
+let note11 = '';
+let note12 = '';
+
 let just = [130.8, 139, 142.7, 149.5, 152.6, 166.5, 171.7, 174.4, 179.9, 190.3, 196.2, 199.3];
 
 let triTone = [1, (16/15), (9/8), (6/5), (5/4), (4/3), (7/5), (3/2), (8/5), (5/3), (9/5), (15/8)];
@@ -22,7 +35,7 @@ let altTwelve = [1, (25/24), (10/9), (7/6), (5/4), (21/16), (7/5), (3/2), (8/5),
 
 let differential = [1, (16/15), (67/60), (6/5), (19/15), (4/3),(7/5), (3/2), (8/5), (5/3), (53/30), (28/15)];
 
-let justRef = [130.8, 139, 142.7, 149.5, 152.6, 166.5, 171.7, 174.4, 179.9, 190.3, 196.2, 199.3];
+let justRef = [130.8, 139, 142.7, 149.5, 152.6, 166.5, 171.7, 174.4, 179.9, 190.3, 196.2, 199.3, 261.60];
 
 let oscPhase = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.1, 0.11, 0.12];
 
@@ -30,12 +43,10 @@ let oscTypes = ['sine', 'triangle', 'sawtooth', 'square'];
 
 let displayOsc = ('');
 
-let col = 14;
-let c = 43;
-let d = 53;
 let width = 1330;
 let height = 790;
 
+const note = new Notes();
 
 function setup() {
   createCanvas(width, height);
@@ -138,8 +149,6 @@ function setup() {
 }
 
 function draw() {
-  // col, c, d = mouseX/2.5;
-  // background(col, c, d);
   background(23,63,80);
 
   //set the freqencies for the oscs
@@ -269,73 +278,73 @@ function draw() {
    } else {fill(19,55,69)}
    rect(10, 720, 100, 50);
    fill(255);
-   text('C', 20, 730, 100, 50);
+   text(note1, 20, 730, 100, 50);
    if (osc2.started == true){
     fill(14,43,53)
   } else {fill(19,55,69)}
    rect(120, 720, 100, 50);
    fill(255);
-   text('D♭', 130, 730, 100, 50);
+   text(note2, 130, 730, 100, 50);
    if (osc3.started == true){
     fill(14,43,53)
   } else {fill(19,55,69)}
    rect(230, 720, 100, 50);
    fill(255);
-   text('D', 240, 730, 100, 50);
+   text(note3, 240, 730, 100, 50);
    if (osc4.started == true){
     fill(14,43,53)
   } else {fill(19,55,69)}
    rect(340, 720, 100, 50);
    fill(255);
-   text('E♭', 350, 730, 100, 50);
+   text(note4, 350, 730, 100, 50);
    if (osc5.started == true){
     fill(14,43,53)
   } else {fill(19,55,69)}
    rect(450, 720, 100, 50);
    fill(255);
-   text('E', 460, 730, 100, 50);
+   text(note5, 460, 730, 100, 50);
    if (osc6.started == true){
     fill(14,43,53)
   } else {fill(19,55,69)}
    rect(560, 720, 100, 50);
    fill(255);
-   text('F', 570, 730, 100, 50);
+   text(note6, 570, 730, 100, 50);
    if (osc7.started == true){
     fill(14,43,53)
   } else {fill(19,55,69)}
    rect(670, 720, 100, 50);
    fill(255);
-   text('F#', 680, 730, 100, 50);
+   text(note7, 680, 730, 100, 50);
    if (osc8.started == true){
     fill(14,43,53)
   } else {fill(19,55,69)}
    rect(780, 720, 100, 50);
    fill(255);
-   text('G', 790, 730, 100, 50);
+   text(note8, 790, 730, 100, 50);
    if (osc9.started == true){
     fill(14,43,53)
   } else {fill(19,55,69)}
    rect(890, 720, 100, 50);
    fill(255);
-   text('A♭', 900, 730, 100, 50);
+   text(note9, 900, 730, 100, 50);
    if (osc10.started == true){
     fill(14,43,53)
   } else {fill(19,55,69)}
    rect(1000, 720, 100, 50);
    fill(255);
-   text('A', 1010, 730, 100, 50);
+   text(note10, 1010, 730, 100, 50);
    if (osc11.started == true){
     fill(14,43,53)
   } else {fill(19,55,69)}
    rect(1110, 720, 100, 50);
    fill(255);
-   text('B♭', 1120, 730, 100, 50);
+   text(note11, 1120, 730, 100, 50);
    if (osc12.started == true){
     fill(14,43,53)
   } else {fill(19,55,69)}
    rect(1220, 720, 100, 50);
    fill(255);
-   text('B', 1230, 730, 100, 50);
+   text(note12, 1230, 730, 100, 50);
 
   //draw the octave up button
   fill(14,43,53);
@@ -397,8 +406,8 @@ function draw() {
   fill(255);
   text('All Notes On', (width - 185), 472, 210, 50);
 
-  // console.log(mouseX, mouseY)
-  console.log(just);
+  note.noteListener();
+
 }
 
 function touchStarted() {
@@ -483,21 +492,21 @@ function mouseClicked() {
       return i / 2 ; } )
     }
 
-  //phase up
-  if ((mouseX >= 10 && mouseX <= 220) &&
-  (mouseY >= 100 && mouseY <= 150)) {
-    oscPhase = oscPhase.map(function(i){
-      return i + .1;
-    })
-  }
+  // //phase up
+  // if ((mouseX >= 10 && mouseX <= 220) &&
+  // (mouseY >= 100 && mouseY <= 150)) {
+  //   oscPhase = oscPhase.map(function(i){
+  //     return i + .1;
+  //   })
+  // }
 
-  //phase down
-  if ((mouseX >= 10 && mouseX <= 220) &&
-  (mouseY >= 160 && mouseY <= 210)) {
-    oscPhase = oscPhase.map(function(i){
-      return i - .1;
-    })
-  }
+  // //phase down
+  // if ((mouseX >= 10 && mouseX <= 220) &&
+  // (mouseY >= 160 && mouseY <= 210)) {
+  //   oscPhase = oscPhase.map(function(i){
+  //     return i - .1;
+  //   })
+  // }
 
   //clear notes
   if ((mouseX >= (width - 220) && mouseX <= (width - 10) &&
