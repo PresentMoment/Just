@@ -3,7 +3,7 @@
     events() {
 
   //osc buttons
-  if ((mouseX >= 10 && mouseX <= 110) && 
+  if ((mouseX >= (width / 166) && mouseX <= 110) && 
   (mouseY >= 600 && mouseY <= 650) && osc1.started) {
   osc1.stop();} else if ((mouseX >= 10 && mouseX <= 110) && 
   (mouseY >= 600 && mouseY <= 650) && osc1.started == false) {
@@ -119,5 +119,21 @@
   (mouseY >= 10 && mouseY <= 60)) {
     just = just.map((e,i)=>justRef[i]);
     }
+
+  //volume buttons
+  if ((mouseX >= 1110 && mouseX <= 1200) &&
+  (mouseY >= 353 && mouseY <= 391)){
+    oscVolume = oscVolume.map(function(i){
+      return i +0.1;
+    })
+  }
+  if ((mouseX >= 1225 && mouseX <= 1320) &&
+  (mouseY >= 353 && mouseY <= 391)){
+    oscVolume = oscVolume.map(function(i){
+      return i -0.1;
+    })
+  }
+
+
   }
 }

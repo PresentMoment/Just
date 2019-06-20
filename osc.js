@@ -1,3 +1,4 @@
+//declare sound sources
 let osc1;
 let osc2;
 let osc3;
@@ -12,6 +13,7 @@ let osc11;
 let osc12;
 let filter;
 
+//declare note values
 let note1 = '';
 let note2 = '';
 let note3 = '';
@@ -25,6 +27,7 @@ let note10 = '';
 let note11 = '';
 let note12 = '';
 
+//declare scales
 let just = [130.8, 139, 142.7, 149.5, 152.6, 166.5, 171.7, 174.4, 179.9, 190.3, 196.2, 199.3];
 
 let triTone = [1, (16/15), (9/8), (6/5), (5/4), (4/3), (7/5), (3/2), (8/5), (5/3), (9/5), (15/8)];
@@ -39,13 +42,24 @@ let justRef = [130.8, 139, 142.7, 149.5, 152.6, 166.5, 171.7, 174.4, 179.9, 190.
 
 let oscPhase = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.1, 0.11, 0.12];
 
+//declare osc types
 let oscTypes = ['sine', 'triangle', 'sawtooth', 'square'];
 
+//declare osc display var
 let displayOsc = ('');
 
+//volume array
+let oscVolume = [0.1];
+
+//declare window dimensions
 let width = 1330;
 let height = 790;
 
+//declare box dimensions
+let leftGrid = (width / 133);
+let rightGrid = (width / 1.2);
+
+//declare classes
 const note = new Notes();
 
 const label = new Labels();
@@ -56,21 +70,26 @@ const clicks = new ClickEvents();
 
 const sources = new SourceSetUp();
 
+
 function setup() {
   createCanvas(width, height);
   noStroke();
   frameRate(10);
   sources.setUpSounds();
+  bg = loadImage('coltrane.jpg');
 }
+
 
 function draw() {
   background(23,63,80);
+  background(bg);
 
   settings.soundSettings();
 
   label.drawLabels();
 
   note.noteListener();
+
 }
 
 function touchStarted() {

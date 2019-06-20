@@ -80,18 +80,18 @@ class SourceSetUp {
   osc12.start(.3);
 
   //set the amps for the oscs
-  osc1.amp(.1);
-  osc2.amp(.1);
-  osc3.amp(.1);
-  osc4.amp(.1);
-  osc5.amp(.1);
-  osc6.amp(.1);
-  osc7.amp(.1);
-  osc8.amp(.1);
-  osc9.amp(.1);
-  osc10.amp(.1);
-  osc11.amp(.1);
-  osc12.amp(.1);
+  osc1.amp(0.1);
+  osc2.amp(0.1);
+  osc3.amp(0.1);
+  osc4.amp(0.1);
+  osc5.amp(0.1);
+  osc6.amp(0.1);
+  osc7.amp(0.1);
+  osc8.amp(0.1);
+  osc9.amp(0.1);
+  osc10.amp(0.1);
+  osc11.amp(0.1);
+  osc12.amp(0.1);
 
   //set the text
   textSize(27);

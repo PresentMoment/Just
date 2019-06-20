@@ -44,5 +44,19 @@ class OscSettings {
   osc10.setType(oscTypes[0]);
   osc11.setType(oscTypes[0]);
   osc12.setType(oscTypes[0]);
+
+   //set the amps for the oscs
+   osc1.amp(oscVolume[0]);
+   osc2.amp(oscVolume[0]);
+   osc3.amp(oscVolume[0]);
+   osc4.amp(oscVolume[0]);
+   osc5.amp(oscVolume[0]);
+   osc6.amp(oscVolume[0]);
+   osc7.amp(oscVolume[0]);
+   osc8.amp(oscVolume[0]);
+   osc9.amp(oscVolume[0]);
+   osc10.amp(oscVolume[0]);
+   osc11.amp(oscVolume[0]);
+   osc12.amp(oscVolume[0]);
   }
 }
