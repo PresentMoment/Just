@@ -94,6 +94,6 @@ class SourceSetUp {
   osc12.amp(0.1);
 
   //set the text
-  textSize(27);
+  // textSize(27);
   }
 }

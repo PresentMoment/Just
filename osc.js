@@ -40,7 +40,7 @@ let differential = [1, (16/15), (67/60), (6/5), (19/15), (4/3),(7/5), (3/2), (8/
 
 let justRef = [130.8, 139, 142.7, 149.5, 152.6, 166.5, 171.7, 174.4, 179.9, 190.3, 196.2, 199.3, 261.60];
 
-let oscPhase = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.1, 0.11, 0.12];
+let oscPhase = [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1];
 
 //declare osc types
 let oscTypes = ['sine', 'triangle', 'sawtooth', 'square'];
@@ -72,24 +72,28 @@ const sources = new SourceSetUp();
 
 
 function setup() {
-  createCanvas(width, height);
+  var cnv = createCanvas(windowWidth - 2, windowHeight);
+  cnv.style('display', 'block');
   noStroke();
   frameRate(10);
   sources.setUpSounds();
-  bg = loadImage('coltrane.jpg');
+  // bg = loadImage('coltrane.jpg');
 }
 
 
 function draw() {
   background(23,63,80);
-  background(bg);
+  // background(bg);
 
   settings.soundSettings();
 
   label.drawLabels();
 
   note.noteListener();
+}
 
+function windowResized() {
+  resizeCanvas(windowWidth - 2, windowHeight);
 }
 
 function touchStarted() {
