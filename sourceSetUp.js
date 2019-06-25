@@ -92,8 +92,5 @@ class SourceSetUp {
   osc10.amp(0.1);
   osc11.amp(0.1);
   osc12.amp(0.1);
-
-  //set the text
-  // textSize(27);
   }
 }

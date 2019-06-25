@@ -14,18 +14,7 @@ let osc12;
 let filter;
 
 //declare note values
-let note1 = '';
-let note2 = '';
-let note3 = '';
-let note4 = '';
-let note5 = '';
-let note6 = '';
-let note7 = '';
-let note8 = '';
-let note9 = '';
-let note10 = '';
-let note11 = '';
-let note12 = '';
+let notes = ["", "", "", "", "", "", "", "", "", "", "", ""];
 
 //declare scales
 let just = [130.8, 139, 142.7, 149.5, 152.6, 166.5, 171.7, 174.4, 179.9, 190.3, 196.2, 199.3];
@@ -77,7 +66,6 @@ function setup() {
   noStroke();
   frameRate(10);
   sources.setUpSounds();
-  // bg = loadImage('coltrane.jpg');
 }
 
 
@@ -90,10 +78,15 @@ function draw() {
   label.drawLabels();
 
   note.noteListener();
+
 }
 
 function windowResized() {
   resizeCanvas(windowWidth - 2, windowHeight);
+}
+
+function labelSize() {
+  text.style("font-size", "40px");
 }
 
 function touchStarted() {

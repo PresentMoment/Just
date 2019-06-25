@@ -1,5 +1,6 @@
 html, body {
   height: 100%;
+  font-size: 10px;
 }
 
 body {
@@ -7,4 +8,5 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
